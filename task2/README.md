@@ -1,8 +1,8 @@
-#####імпортуєму графічну біблотеку tkinter
+#####__імпортуєму графічну біблотеку tkinter:__
 _import tkinter as tkt_
 _import math_
 ***
-####присвоюємо значеня і назви кнопкам
+####__присвоюємо значеня і назви кнопкам:__
 _def calc(oper):
     global goo
     if oper == 'C':
@@ -29,11 +29,30 @@ _def calc(oper):
         goo += oper
     label_txt.configure(text=goo)_
 ***
-####задаємо розміри калькулятора та назви кнопок
-__
+####__задаємо розміри калькулятора та назви кнопок:__
+_wd =tkt.Tk()
+wd.title('Калькулятор')
+wd.geometry('500x650')
+wd.configure(bg = 'pink')
+buts= ['C','-', '+', '=',
+       '1','2','3', '/','4','5','6','*',
+       '7','8','9','0','sin','cos','tan',
+       'ctg','log','ln','%','Bin',]
+x = 18
+y = 140_
 ***
-####задання формату для кнопок
-__
+####__задання формату для кнопок:__
+_for button in buts:
+    get_lbl = lambda x=button: calc(x)
+    tkt.Button(text= button, bg = 'white', font=('Times New Roman', 20), command = get_lbl).place(x =x , y=y, width = 115, height = 80)
+    x+= 120
+    if x> 400:
+        x= 20
+        y+= 85
+goo = '0'
+label_txt= tkt.Label(text= goo, font = ('Times New Roman',35, 'bold'), bg = 'white',fg = 'black')
+label_txt.place(x = 11, y = 50)
+wd.mainloop()_
 ***
 ####Результати:
 ![image](https://user-images.githubusercontent.com/86964958/125848079-f38dd747-8916-4076-96ee-273336c94786.png)
